@@ -29,8 +29,11 @@ public class HelloWorld
 
 	
 	public   static void openChromeBrowser()
-	{
-		System.setProperty("webdriver.chrome.driver","D:\\MyFiles_Chanagonda\\UpdatedVersions\\chromedriver.exe");
+	{ 
+		 
+		
+		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\lib\\chromedriver.exe");
+	//	System.setProperty("webdriver.chrome.driver","D:\\MyFiles_Chanagonda\\UpdatedVersions\\chromedriver.exe");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--test-type");
 		options.addArguments("--disable-popup-blocking");
