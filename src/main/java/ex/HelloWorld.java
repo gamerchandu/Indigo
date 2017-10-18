@@ -1,39 +1,48 @@
-<<<<<<< HEAD
 package ex;
+
+
+import javax.management.openmbean.OpenDataException;
+
+import org.openqa.selenium.Capabilities; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+// import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class HelloWorld 
 {
 
-	public static void main(String args[]){
-
-		System.out.println("Hello World, Maven");
-		System.out.println("line 1");
-		System.out.println("line 222 ");
-		System.out.println("Line 3333");
-		System.out.println("October 11 7:16 pm");
-
-	}
-
-}
-=======
-package ex;
-
-public class HelloWorld 
-{
-
-	public static void main(String args[]){
-
-		System.out.println("Hello World, Maven");
-		System.out.println("line 1");
-		System.out.println("line 222 ");
-		System.out.println("Line 3333");
-		System.out.println("Updated for push command");
-		System.out.println("second push command");
-		System.out.println("september 11 push command");
-		System.out.println("september 19 NEW COMMIT");
+	static WebDriver driver;
+	public static void main(String args[])
+	{
 		
-
+		openChromeBrowser();
+		driver.get("http://www.google.com");
+		
+		System.out.println(driver.getTitle());
 	}
 
+	
+	public   static void openChromeBrowser()
+	{
+		System.setProperty("webdriver.chrome.driver","D:\\MyFiles_Chanagonda\\UpdatedVersions\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--test-type");
+		options.addArguments("--disable-popup-blocking");
+		options.addArguments("start-maximized");
+		options.addArguments("disable-infobars");
+		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+		driver=new ChromeDriver(capabilities);
+	//	driver.manage().window().maximize();
+		
+		 
+	}
 }
->>>>>>> 3d99328758f1781dbdb94815f1e84041ef9e8d1b
+ 
+ 
